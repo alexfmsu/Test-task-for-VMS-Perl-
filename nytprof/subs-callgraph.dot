@@ -1,0 +1,131 @@
+digraph {
+graph [overlap=false]
+subgraph cluster_constant {
+	label="constant";
+	"constant::import";
+	"constant::BEGIN@141";
+	"constant::CORE:qr";
+	"constant::BEGIN@40";
+	"constant::BEGIN@65";
+	"constant::CORE:regcomp";
+	"constant::BEGIN@3";
+	"constant::BEGIN@2";
+	"constant::BEGIN@4";
+	"constant::BEGIN@24";
+	"constant::CORE:subst";
+	"constant::BEGIN@90";
+	"constant::CORE:match";
+}
+subgraph cluster_Internals {
+	label="Internals";
+	"Internals::SvREADONLY";
+}
+subgraph cluster_Tie_Hash_NamedCapture {
+	label="Tie::Hash::NamedCapture";
+	"Tie::Hash::NamedCapture::FETCH";
+}
+subgraph cluster_strict {
+	label="strict";
+	"strict::BEGIN@7";
+	"strict::import";
+	"strict::unimport";
+	"strict::bits";
+	"strict::CORE:match";
+}
+subgraph cluster_XSLoader {
+	label="XSLoader";
+	"XSLoader::load";
+}
+subgraph cluster_mro {
+	label="mro";
+	"mro::method_changed_in";
+}
+subgraph cluster_warnings {
+	label="warnings";
+	"warnings::_mkMask";
+	"warnings::import";
+	"warnings::CORE:match";
+	"warnings::register_categories";
+}
+subgraph cluster_warnings_register {
+	label="warnings::register";
+	"warnings::register::import";
+}
+subgraph cluster_main {
+	label="main";
+	"main::CORE:match";
+	"main::CORE:mkdir";
+	"main::CORE:ftis";
+	"main::CORE:regcomp";
+	"main::BEGIN@0";
+	"main::BEGIN@1.1";
+	"main::CORE:ftfile";
+	"main::BEGIN@3";
+	"main::open_file";
+	"main::CORE:readline";
+	"main::CORE:qr";
+	"main::BEGIN@5";
+	"main::BEGIN@1";
+	"main::BEGIN@2";
+	"main::CORE:binmode";
+	"main::BEGIN@47";
+	"main::RUNTIME";
+	"main::CORE:print";
+	"main::NULL";
+	"main::CORE:close";
+	"main::CORE:open";
+}
+"main::RUNTIME" -> "main::CORE:ftis";
+"main::RUNTIME" -> "main::CORE:mkdir";
+"constant::import" -> "mro::method_changed_in";
+"main::BEGIN@0" -> "main::CORE:ftfile";
+"strict::unimport" -> "strict::bits";
+"main::BEGIN@47" -> "main::BEGIN@1.1";
+"main::RUNTIME" -> "main::open_file";
+"main::RUNTIME" -> "main::CORE:readline";
+"main::BEGIN@47" -> "XSLoader::load";
+"main::BEGIN@5" -> "constant::BEGIN@40";
+"main::RUNTIME" -> "main::CORE:qr";
+"main::BEGIN@5" -> "constant::BEGIN@2";
+"main::BEGIN@5" -> "constant::BEGIN@65";
+"main::BEGIN@5" -> "constant::BEGIN@3";
+"main::RUNTIME" -> "main::CORE:binmode";
+"main::BEGIN@2" -> "strict::import";
+"constant::BEGIN@3" -> "strict::import";
+"main::BEGIN@1.1" -> "strict::import";
+"main::NULL" -> "main::BEGIN@5";
+"main::NULL" -> "main::BEGIN@2";
+"main::BEGIN@5" -> "constant::BEGIN@90";
+"constant::import" -> "constant::CORE:subst";
+"main::BEGIN@3" -> "warnings::CORE:match";
+"constant::BEGIN@65" -> "strict::unimport";
+"constant::BEGIN@40" -> "strict::unimport";
+"constant::BEGIN@90" -> "strict::unimport";
+"constant::BEGIN@141" -> "strict::unimport";
+"main::RUNTIME" -> "main::CORE:print";
+"constant::import" -> "Internals::SvREADONLY";
+"constant::BEGIN@24" -> "Internals::SvREADONLY";
+"strict::BEGIN@7" -> "strict::CORE:match";
+"main::RUNTIME" -> "main::CORE:regcomp";
+"main::NULL" -> "main::BEGIN@0";
+"main::RUNTIME" -> "main::CORE:match";
+"warnings::register_categories" -> "warnings::_mkMask";
+"main::BEGIN@2" -> "strict::BEGIN@7";
+"main::BEGIN@5" -> "constant::import";
+"main::NULL" -> "main::BEGIN@3";
+"main::BEGIN@5" -> "constant::CORE:qr";
+"main::BEGIN@5" -> "constant::BEGIN@141";
+"main::NULL" -> "main::BEGIN@47";
+"main::NULL" -> "main::BEGIN@1";
+"main::BEGIN@5" -> "constant::BEGIN@24";
+"main::BEGIN@5" -> "constant::BEGIN@4";
+"constant::import" -> "constant::CORE:match";
+"warnings::register::import" -> "warnings::register_categories";
+"main::RUNTIME" -> "main::CORE:close";
+"constant::BEGIN@4" -> "warnings::register::import";
+"main::RUNTIME" -> "Tie::Hash::NamedCapture::FETCH";
+"main::BEGIN@3" -> "warnings::import";
+"constant::import" -> "constant::CORE:regcomp";
+"main::open_file" -> "main::CORE:open";
+"main::RUNTIME" -> "main::CORE:open";
+}
